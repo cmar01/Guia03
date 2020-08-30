@@ -1,0 +1,16 @@
+<div class="header">
+    <h1>Galosinera Cepillin</h1>
+    <p>Ingrese los datos solicitados</p>
+</div>
+<label>Ingrese la cantidad de galones:</label>
+<input type="number" [(ngModel)]="valorcm" min="0.05" max="150" pattern="([0-9]|[1-8][0-9]|9[0-9]|1[0-4][0-9]|150)">
+<label>Tipo de gasolina:</label>
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+    <option value="Selecciona">Selecciona</option>
+    <option *ngFor="let u of unidades" value="{{u}}" >
+    {{u}}
+    </option>
+   </select>
+<label [hidden]="opcionSeleccionado == 'Selecciona'">Su valor en {{ opcionSeleccionado }} es $:
+   {{valorconversion}}
+</label>
